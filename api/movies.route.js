@@ -1,9 +1,8 @@
 import express from 'express'
+import MoviesController from './movies.controller.js'
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.send('Hello Page.')
-})
+router.route('/').get(MoviesController.apiGetMovies)
 
 export default router
