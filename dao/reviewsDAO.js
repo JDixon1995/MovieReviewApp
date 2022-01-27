@@ -11,8 +11,7 @@ export default class ReviewsDAO {
             return
         }
         try {
-            reviews = await
-        conn.db(process.env.MOVIEREVIEWS_NS).collection('reviews')
+            reviews = await conn.db(process.env.MOVIEREVIEWS_NS).collection('reviews')
         } catch (e) {
             console.error(`Unable to establish connection handle in reviewDAO: ${e}`)            
         }
@@ -22,7 +21,7 @@ export default class ReviewsDAO {
         try {
             const reviewDoc = {
                 name: user.name,
-                user_id: user_id,
+                user_id: user._id,
                 date: date,
                 review: review,
                 movie_id: ObjectId(movieId)
